@@ -1,4 +1,5 @@
-# **ft_printf**
+<h1 align="center">ft_printf</h1>
+
 ## Summary : 
 
 The goal of this project is pretty straightforward. **Recoding printf()**.
