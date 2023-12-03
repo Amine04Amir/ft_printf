@@ -1,5 +1,4 @@
-<h1 align="center"><span style="color:#FF5733;">ft_printf</span></h1>
-
+# __ft-printf__
 ## Summary : 
 
 The goal of this project is pretty straightforward. **Recoding printf()**.
