@@ -1,4 +1,4 @@
-# __ft-printf__
+# **ft_printf**
 ## Summary : 
 
 The goal of this project is pretty straightforward. **Recoding printf()**.
