@@ -1,4 +1,4 @@
-<h1 align="center" style="color: #FF5733;">ft_printf</h1>
+<h1 align="center"><span style="color:#FF5733;">ft_printf</span></h1>
 
 ## Summary : 
 
