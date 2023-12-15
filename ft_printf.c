@@ -44,11 +44,11 @@ int	ft_check(const char *str, va_list macro)
 int	ft_printf(const char *str, ...)
 {
 	int		i;
-	int		j;
+	int		count;
 	va_list	macro;
 
 	i = 0;
-	j = 0;
+	count = 0;
 	va_start(macro, str);
 	while (str[i])
 	{
@@ -56,15 +56,15 @@ int	ft_printf(const char *str, ...)
 		{
 			if (str[i + 1] == '\0')
 				break ;
-			j += ft_check(&str[i + 1], macro);
+			count += ft_check(&str[i + 1], macro);
 			i++;
 		}
 		else
-			j += ft_putchar(str[i]);
+			count += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(macro);
-	return (j);
+	return (count);
 }
 // int main() {
 //     char ch = 'A';
