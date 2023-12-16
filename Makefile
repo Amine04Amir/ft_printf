@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SRC = ft_printf_utils.c ft_printf_utils2.c ft_printf.c
+SRC = ft_printf_utils1.c ft_printf_utils2.c ft_printf.c
 
 CC = cc
 
