@@ -6,13 +6,13 @@
 /*   By: mamir <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:09:34 by mamir             #+#    #+#             */
-/*   Updated: 2023/12/06 16:04:07 by mamir            ###   ########.fr       */
+/*   Updated: 2023/12/21 13:33:13 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check(const char *str, va_list macro)
+int	ft_check(const char *str, va_list argptr)
 {
 	int	count;
 
@@ -20,21 +20,21 @@ int	ft_check(const char *str, va_list macro)
 	if (*str == '%')
 		count = ft_putchar('%');
 	else if (*str == 'c')
-		count = ft_putchar(va_arg(macro, int));
+		count = ft_putchar(va_arg(argptr, int));
 	else if (*str == 's')
-		count = ft_putstr(va_arg(macro, char *));
+		count = ft_putstr(va_arg(argptr, char *));
 	else if (*str == 'd' || *str == 'i')
-		count = ft_putnbr(va_arg(macro, int));
+		count = ft_putnbr(va_arg(argptr, int));
 	else if (*str == 'u')
-		count = ft_unsigned(va_arg(macro, int));
+		count = ft_unsigned(va_arg(argptr, int));
 	else if (*str == 'x')
-		count = ft_puthex(va_arg(macro, unsigned int));
+		count = ft_puthex(va_arg(argptr, unsigned int));
 	else if (*str == 'X')
-		count = ft_puthexu(va_arg(macro, unsigned int));
+		count = ft_puthexu(va_arg(argptr, unsigned int));
 	else if (*str == 'p')
 	{
 		count = ft_putstr("0x");
-		count += ft_pointer(va_arg(macro, unsigned long));
+		count += ft_pointer(va_arg(argptr, unsigned long));
 	}
 	else
 		count = ft_putchar(*str);
@@ -45,25 +45,25 @@ int	ft_printf(const char *str, ...)
 {
 	int		i;
 	int		count;
-	va_list	macro;
+	va_list	argptr;
 
 	i = 0;
 	count = 0;
-	va_start(macro, str);
+	va_start(argptr, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			if (str[i + 1] == '\0')
 				break ;
-			count += ft_check(&str[i + 1], macro);
+			count += ft_check(&str[i + 1], argptr);
 			i++;
 		}
 		else
 			count += ft_putchar(str[i]);
 		i++;
 	}
-	va_end(macro);
+	va_end(argptr);
 	return (count);
 }
 // int main() {
